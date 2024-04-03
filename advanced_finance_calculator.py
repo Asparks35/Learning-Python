@@ -23,22 +23,28 @@ if choice == "investment":
             time = int(time)
         except:#to catch value error
             print("One of the values filled out above is not a numerical values ")
+            continue
         else:
-            break
-        while True:
+            break            
+    while True:
             interest = input('Would you like "Simple" or "Compound" interest for this investment?(Only write the words in quotation marks) ')
-            interest = interest.lower()#to prevent any unnecessary errors
+            interests = ["simple","compound"]
+            interest = interest.lower()
+            if interest not in interests:
+                continue
+            else:
+                break
 
-            if interest == "simple":
-                    simple  = total = principal *(1 + rate*time)#calculations for simple interest
-                    print(f"You will have £{total:.2f} at the end of {time}years using simple interest")
-                    break
-
-            elif interest == "compound":
-                while True:
-                    compound =  total = principal * math.pow((1+rate),time)#calculations for compound interest
-                    print(f"You will have £{total:.2f} at the end of {time}years using compound interest")
-                    break
+    while True:
+            if interest == "simple":                        
+                simple  = total = principal *(1 + rate*time)#calculations for simple interest
+                print(f"You will have £{total:.2f} at the end of {time}years using Simple interest")
+                break
+                        
+            elif interest == "compound":                           
+                compound =  total = principal * math.pow((1+rate),time)#calculations for compound interest
+                print(f"You will have £{total:.2f} at the end of {time}years using Compound interest")
+                break
 if choice == "bond":
     while True:
         Present_value = input("What is the present value of your house? ")
@@ -53,11 +59,4 @@ if choice == "bond":
             continue
         repayment = (interest_rate * Present_value)/(1 - (1 + interest_rate)**(-num_of_months))
         print(f"You'll need £{repayment:.2f} over a period of {num_of_months}months" )
-        break
-
-                
-
-            
-                    
-                
-        
+        break       
