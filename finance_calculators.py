@@ -17,11 +17,13 @@ if choice == "investment":
     interest = interest.lower()#to prevent any unnecessary errors
     if interest == "simple":
         simple  = total = principal *(1 + rate*time)#calculations for simple interest
-        print(f"You will have £{total:.2f} at the end of {time}months using simple interest")
-    
-    if interest == "compound":
+        print(f"You will have £{total:.2f} at the end of {time}years using simple interest")
+            
+    elif interest == "compound":
         compound =  total = principal * math.pow((1+rate),time)#calculations for compound interest
-        print(f"You will have £{total:.2f} at the end of {time}months using compound interest")
+        print(f"You will have £{total:.2f} at the end of {time}years using compound interest")
+    else:
+        print("Choose a valid answer")
 
 if choice == "bond":
     Present_value = float(input("What is the present value of your house? "))
